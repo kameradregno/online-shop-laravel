@@ -28,6 +28,21 @@
                         <a href="#"
                             class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : '' }} hover:underline">Rewards</a>
                     </li>
+                    @guest
+                        <li class="mx-3 py-6 md:py-0">
+                        <a href="{{ route('login') }}"
+                            class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : '' }} hover:underline">Login</a>
+                    </li>
+                    <li class="mx-3 py-6 md:py-0">
+                        <a href="{{ route('register') }}"
+                            class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : '' }} hover:underline">Register</a>
+                    </li>
+                    @else
+                        <li class="mx-3 py-6 md:py-0">
+                        <a href="{{ route('dashboard.index') }}"
+                            class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : '' }} hover:underline">Dashboard</a>
+                    </li>
+                    @endguest
                 </ul>
             </div>
             <div class="w-auto">
